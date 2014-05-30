@@ -5,4 +5,13 @@
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control?
 #
 # Pods/
-
+*.pbxproj
+*.[ao]
+.*
+!.gitignore
+.DS_Store
+xcuserdata
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
