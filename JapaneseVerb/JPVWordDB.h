@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPVWord.h"
 
 @interface JPVWordDB : NSObject
+@property (assign,nonatomic)BOOL needConcessionRecognize;
 
+
+-(NSArray *)getMatchedArrayByPrefix:(NSString *)prefix;
+-(JPVWord *)getWordDetail:(NSString *)wordName;
+-(NSArray *)transToKanji:(NSString *)prefix;
+
++(BOOL)allInKana:(NSString *)prefix;
++(instancetype)shareWordDB;
 @end
