@@ -124,6 +124,35 @@
     }
     return list;
 }
+-(JPVWord *)getWordDetail:(NSString *)wordName{
+    return [self.map objectForKey:wordName];
+}
+
+-(NSArray *)transToKanji:(NSString *)prefix{
+    NSInteger prefixLength = [prefix length];
+    NSInteger endIndex = [self getEndSearchIndexByLength:prefixLength +1];
+    for (NSInteger i=endIndex; i>=0; i--) {
+        NSString *kana = [self.kanaList objectAtIndex:i];
+        if ([prefix hasPrefix:kana]) {
+            NSArray *kanjiLinkedList = [self.KanaKanjiMap objectForKey:kana];
+            return kanjiLinkedList;
+        }
+    }
+    return nil;
+}
+
+-(NSInteger)getEndSearchIndexByLength:(NSInteger)prefixLength{
+    NSInteger low=0,high = [self.kanaList count]-1;
+    while (low<high) {
+        NSInteger mid = low+((high -low+1)>>1);
+        if ([[self.kanaList objectAtIndex:mid]length]<prefixLength) {
+            low=mid;
+        }else{
+            high = mid -1;
+        }
+    }
+    return [[self.kanaList objectAtIndex:low]length]<prefixLength?low:-1;
+}
 
 
 @end
