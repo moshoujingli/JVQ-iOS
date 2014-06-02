@@ -111,6 +111,15 @@
     return YES;
 }
 
+#define CON_REC @"CON_REC"
+-(BOOL)needConcessionRecognize{
+    return [[NSUserDefaults standardUserDefaults]boolForKey:CON_REC];
+}
+
+-(void)setNeedConcessionRecognize:(BOOL)needConcessionRecognize{
+    [[NSUserDefaults standardUserDefaults]setBool:needConcessionRecognize forKey:CON_REC];
+}
+
 -(NSArray *)getMatchedArrayByKanji:(NSString *)kanji{
     NSArray *baseType = [self.map allKeys];
     NSMutableArray *list = [[NSMutableArray alloc]initWithCapacity:10];
