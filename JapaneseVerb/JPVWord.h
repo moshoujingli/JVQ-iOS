@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface JPVWord : NSObject
-
+-(id)initWithElem:(NSArray *)elements andType:(NSString *)type;
 @end
