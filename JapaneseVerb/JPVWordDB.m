@@ -112,7 +112,17 @@
 }
 
 -(NSArray *)getMatchedArrayByKanji:(NSString *)kanji{
-        return nil;
+    NSArray *baseType = [self.map allKeys];
+    NSMutableArray *list = [[NSMutableArray alloc]initWithCapacity:10];
+    for (NSString* key in baseType) {
+        if ([key hasPrefix:kanji]) {
+            [list addObject:key];
+        }
+    }
+    if (self.needConcessionRecognize &&[list count]==0&&[kanji length]>1) {
+        return [self getMatchedArrayByKanji:[kanji substringToIndex:1]];
+    }
+    return list;
 }
 
 
