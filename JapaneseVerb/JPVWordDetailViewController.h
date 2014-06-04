@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPVWordDB.h"
+
 
 @interface JPVWordDetailViewController : UIViewController
-
+@property (strong,nonatomic)JPVWord* word;
 @end

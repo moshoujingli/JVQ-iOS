@@ -47,7 +47,6 @@
     self.tableView = [[UITableView alloc]init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundColor=[UIColor blackColor];
     
     self.checkBox = [[UIButton alloc]init];
     
@@ -168,7 +167,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    JPVWordDetailViewController* svc=[[JPVWordDetailViewController alloc]init];
+    svc.word = [[JPVWordDB shareWordDB]getWordDetail:self.matchedWord[indexPath.row]];
+    [self presentViewController:svc animated:YES completion:^{
+        
+    }];
 }
 
 /*

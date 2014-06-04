@@ -26,7 +26,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UITextView* text = [[UITextView alloc]init];
+    text.frame = CGRectMake(10, 80, self.view.frame.size.width-20, self.view.frame.size.height-100);
+    text.text = [self.word description];
+    text.textAlignment = NSTextAlignmentLeft;
+    text.editable=NO;
+    
+    UIButton *back = [[UIButton alloc]init];
+    [back setTitle:@"Back" forState:UIControlStateNormal];
+    back.frame = CGRectMake(self.view.frame.size.width*0.7, self.view.frame.size.height*0.5, 66, 44);
+    [back setTitleColor:[UIColor colorWithRed:((float) 24/ 255.0f)
+                                       green:((float) 153/ 255.0f)
+                                        blue:((float) 251/ 255.0f)
+                                        alpha:1.0f] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(backPushed) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:text];
+    [self.view addSubview:back];
+}
+-(void)backPushed{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning

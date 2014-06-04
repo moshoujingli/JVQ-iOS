@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JPVWordDB.h"
+#import "JPVWordDetailViewController.h"
 @interface JPVSearchViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate>
 
 @end
