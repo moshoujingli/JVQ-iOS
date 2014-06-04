@@ -113,7 +113,8 @@
 
 #define CON_REC @"CON_REC"
 -(BOOL)needConcessionRecognize{
-    return [[NSUserDefaults standardUserDefaults]boolForKey:CON_REC];
+//    return [[NSUserDefaults standardUserDefaults]boolForKey:CON_REC];
+    return YES;
 }
 
 -(void)setNeedConcessionRecognize:(BOOL)needConcessionRecognize{
