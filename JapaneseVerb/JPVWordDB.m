@@ -87,7 +87,7 @@
     NSArray *kanjis=@[prefix];
     NSMutableArray *matchWord = [[NSMutableArray alloc]initWithCapacity:20];
     if ([prefix length]) {
-        if ([prefix length]>1&&[[self class]allInKana:prefix]) {
+        if ([prefix length]>=1&&[[self class]allInKana:prefix]) {
             NSArray *transToKanjiResult = [self transToKanji:prefix];
             if (transToKanjiResult) {
                 kanjis=transToKanjiResult;
@@ -140,7 +140,7 @@
 
 -(NSArray *)transToKanji:(NSString *)prefix{
     NSInteger prefixLength = [prefix length];
-    NSInteger endIndex = [self getEndSearchIndexByLength:prefixLength +1];
+    NSInteger endIndex = [self getEndSearchIndexByLength:prefixLength+1];
     for (NSInteger i=endIndex; i>=0; i--) {
         NSString *kana = [self.kanaList objectAtIndex:i];
         if ([prefix hasPrefix:kana]) {
