@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JPVWordDB.h"
+#import <iAd/iAd.h>
 
 
-@interface JPVWordDetailViewController : UIViewController
+@interface JPVWordDetailViewController : UIViewController <ADBannerViewDelegate>
 @property (strong,nonatomic)JPVWord* word;
 @end

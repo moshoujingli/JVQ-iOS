@@ -7,7 +7,6 @@
 //
 
 #import "JPVWordDetailViewController.h"
-
 @interface JPVWordDetailViewController ()
 
 @end
@@ -41,9 +40,18 @@
                                         alpha:1.0f] forState:UIControlStateNormal];
     [back addTarget:self action:@selector(backPushed) forControlEvents:UIControlEventTouchUpInside];
     
+    ADBannerView *banner = [[ADBannerView alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0, self.view.frame.size.height-50, self.view.frame.size.width, 50)];
+    [banner sizeToFit];
+    banner.delegate = self;
+    
     [self.view addSubview:text];
     [self.view addSubview:back];
+    [self.view addSubview:banner];
+
 }
+
+
+
 -(void)backPushed{
     [self dismissViewControllerAnimated:YES completion:^{
         
